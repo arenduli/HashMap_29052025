@@ -15,12 +15,12 @@ public class EvidencijaPolaznika {
         }
     }
 
-    public void ispisiPolaznike() {
+    public void ispisPolaznika() {
+
+        Map<String, Polaznik> polazniciZaIspis = new TreeMap<>(polaznici);
 
         System.out.println("Polaznici na tečaju:");
-        polaznici.values().stream()
-                .sorted(Comparator.comparing(Polaznik::getEmail))
-                .forEach(System.out::println);
+        polazniciZaIspis.values().forEach(System.out::println);
     }
 
     public static void main(String[] args) {
@@ -45,6 +45,6 @@ public class EvidencijaPolaznika {
             evidencija.dodavanjePolaznika(ime, prezime, email);
         }
 
-        evidencija.ispisiPolaznike();
+        evidencija.ispisPolaznika();
     }
 }
